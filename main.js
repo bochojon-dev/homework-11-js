@@ -151,3 +151,160 @@
 // let number = 123;
 // let result = number.sum();
 // console.log(result);
+
+// // Array constructor1
+// Array.prototype.customMap = function (callback) {
+//   let arr = [];
+//   for (i = 0; i < this.length; i++) {
+//     arr.push(callback(this[i]));
+//   }
+//   return arr;
+// };
+// let array = [1, 2, 3, 4];
+// let result = array.customMap((el) => el * 2);
+// console.log(result);
+
+// // Array constructor2
+// Array.prototype.customMap = function (callback) {
+//   for (i = 0; i < this.length; i++) {
+//     if (callback(this[i])) {
+//       return true;
+//     }
+//     return false;
+//   }
+// };
+// let array = [1, 2, 3, 4];
+// let result = array.customMap((el) => (el > 0));
+// console.log(result);
+
+// // Array constructor3
+// Array.prototype.customReduce = function (callback, el) {
+//   if (el !== undefined) {
+//     acc = el;
+//   } else {
+//     acc = this[0];
+//   }
+//   for (let i = el; i < this.length; i++) {
+//     acc = callback(acc, this[i], i, this);
+//   }
+//   return acc;
+// };
+// let array = [1, 2, 3, 4, 5];
+// let result = array.customReduce((acc, el) => acc + el, 0);
+// console.log(result);
+
+// // Array constructor4
+// Array.prototype.customFindIndex = function (callback) {
+//   for (let i = 0; i < this.length; i++) {
+//     if (callback(this[i])) {
+//       return i;
+//     }
+//   }
+//   return `arrayda mavjud bo'lmagan element kiritndingiz`;
+// };
+// let array = [12, 1, 18, 5];
+// let result = array.customFindIndex((el) => el == 18);
+// console.log(result);
+
+// // Array constructor5
+// Array.prototype.customSplice = function (start, deleteCount, ...rest) {
+//   const el = this.slice(start, start + deleteCount);
+//   const arr = this.slice(0, start).concat(rest,this.slice(start + deleteCount));
+//   this.push(...arr);
+//   return el;
+// };
+// let array = ["apple", "banana", "cherry", "date"];
+// let result = array.customSplice(1, 2, "orange", "pear");
+// console.log(result);
+
+// Constructor1
+// CLASS ///////////
+// class Animal {
+//   constructor(name, speed, limitAge) {
+//     this.name = name;
+//     this.speed = speed;
+//     this.limitAge = limitAge;
+//   }
+//   info() {
+//     return this.name + "'s speed is " + this.speed + ", max age is " + this.limitAge;
+//   }
+// }
+// let john = new Animal("bobik", 10, 18);
+// console.log(john);
+
+// CONSTRUCTOR FUNCTION /////////////////
+// function Person(name, speed, limitAge) {
+//   this.name = name;
+//   this.speed = speed;
+//   this.limitAge = limitAge;
+// }
+
+// Person.prototype.info = function () {
+//   return (
+//     this.name + "'s speed is " + this.speed + ", max age is " + this.limitAge
+//   );
+// };
+
+// let bobik = new Person("bobik", 10, 18);
+// console.log(bobik.info());
+
+// // Constructor2
+// class Student {
+//   constructor(name, course, years, university) {
+//     this.name = name;
+//     this.course = course;
+//     this.years = years;
+//     this.university = university;
+//   }
+//   leftYears() {
+//     let reset = this.years - this.course;
+//     return `universitet tugashiga ${reset} yil qoldi`;
+//   }
+// }
+// let bochojon = new Student(`Maqsadjon`, 2, 4, `tuit`);
+// console.log(bochojon.leftYears());
+
+// // Constructor3
+// class Person {
+//   constructor(name, age, currentYear) {
+//     this.name = name;
+//     this.age = age;
+//     this.currentYear = currentYear;
+//   }
+//   getBirtYear() {
+//     return this.currentYear - this.age;
+//   }
+// }
+// let bochojon = new Person(`Maqsadjon`, 19, 2024);
+// console.log(bochojon.getBirtYear());
+
+// // Constructor4
+// class Epmloyee {
+//   constructor(name, salary, workName) {
+//     this.name = name;
+//     this.salary = salary;
+//     this.workName = workName;
+//   }
+//   increaseSalary(_protcent) {
+//     return this.salary * ((100 + _protcent) / 100);
+//   }
+// }
+// let sunnatjon = new Epmloyee("Sunnatjon", 1000000, `developer`);
+// console.log(sunnatjon.increaseSalary(20));
+
+// // Constructor5
+// class Rectangle {
+//   constructor(width, height) {
+//     this.width = width;
+//     this.height = height;
+//   }
+//   getArea() {
+//     return this.width * this.height;
+//   }
+//   getPerimetr() {
+//     return 2 * (this.width + this.height);
+//   }
+// }
+// let rectangle = new Rectangle(10, 20);
+// console.log(`yuzasi: ` + rectangle.getArea());
+// console.log(`perimetri: ` + rectangle.getPerimetr());
